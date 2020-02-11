@@ -1,22 +1,26 @@
 package com.ouasti2.eventCode.controller;
 
 
+import com.ouasti2.eventCode.model.Evenement;
 import com.ouasti2.eventCode.model.Organisateur;
 import com.ouasti2.eventCode.model.OrganisateurDAO;
+import com.ouasti2.eventCode.view.EvenementTable;
 import com.ouasti2.eventCode.view.OrganisateurView;
 import com.ouasti2.eventCode.view.ReponseView;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ControllerConnexion {
-    //    susan97@jean.com
-    //    JT.>0XS~vj/VN4Ir'&xk
-    public static void main(String[] args) {
+
+    public static void verificationConnexion() {
 
 
         OrganisateurView frame = new OrganisateurView();
+
         frame.getButton().addActionListener(new ActionListener() {
 
 
@@ -25,6 +29,11 @@ public class ControllerConnexion {
 
                 char[] passwordEntree;
                 String mailEntree;
+
+                JTable evenementTable = new JTable(new EvenementTable(organisateur.getEvenements()));
+
+                fn.getScroll().getViewport().add(evenementTable);
+                Evenement[] evenements;
 
                 StringBuilder passwordEntree1 = new StringBuilder();
                 passwordEntree = frame.getPassword1();
@@ -46,6 +55,7 @@ public class ControllerConnexion {
                         fen.getLabel3().setText("Le mail de l'organisateur :  " + organisateur.getMail());
                         fen.getLabel4().setText("Le type de compte  :  " + organisateur.getTypeCompte());
                         fen.getLabel5().setText(" Le mail du parrain est : " + organisateur.getMailParrain());
+
 
                     } else {
                         frame.getLabel3().setText("login ou mot de passe incorrect");
