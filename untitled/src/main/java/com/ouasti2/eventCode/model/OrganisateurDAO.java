@@ -2,7 +2,6 @@ package com.ouasti2.eventCode.model;
 
 import org.apache.commons.dbutils.QueryRunner;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class OrganisateurDAO  implements IntrefaceOrganisateurDAO {

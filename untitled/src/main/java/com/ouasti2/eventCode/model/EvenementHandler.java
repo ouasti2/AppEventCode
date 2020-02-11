@@ -24,8 +24,13 @@ public class EvenementHandler extends BeanListHandler<Evenement> {
 
     public static Map<String, String> mapColumnsToFields() {
         Map<String, String> columnsToFieldsMap = new HashMap<>();
+        columnsToFieldsMap.put("nom_evenement", "nom");
         columnsToFieldsMap.put("organisateur_id", "organisateurId");
         columnsToFieldsMap.put("date_evenement", "dateEvenement");
+        columnsToFieldsMap.put("nombre_billets_panier", "nombreBilletsPanier");
+        columnsToFieldsMap.put("nombre_billets_vendu", "nombreBilletsVendu");
+
+
         return columnsToFieldsMap;
     }
 
